@@ -1,0 +1,6 @@
+spring:
+  profiles: local
+  thymeleaf:
+    cache: false     #导入devtools包后开启SpringBoot热部署功能
+server:
+  port: 8081
