@@ -1,3 +1,8 @@
+springboot 2.X支持java 1.6及以上的版本（）
+
+
+
+
 一：在html页面中引入thymeleaf命名空间，即，此时在html模板文件中动态的属性使用th:命名空间修饰 。
 $表达式只能写在th标签内部,不然不会生效
 牛叉的循环<li th:each="book : ${books}"
@@ -49,6 +54,6 @@ result of an iteration).
 补充：配合 th:object="${session.user}：
 
 
-
+#{...}：获取国际化内容
 
 

@@ -2,5 +2,8 @@ spring:
   profiles: local
   thymeleaf:
     cache: false     #导入devtools包后开启SpringBoot热部署功能
+  messages:
+    basename: i18n/login  #国际化配置,默认配置文件是类路径下的message.properties
 server:
   port: 8081
+

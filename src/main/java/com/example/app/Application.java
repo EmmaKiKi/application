@@ -21,6 +21,7 @@ public class Application {
 		return new MyViewResoler();
 	}
 	
+//自定义师徒解析器，可以和默认的视图解析器共同作用
 class MyViewResoler implements  ViewResolver  {
 
 	@Override
