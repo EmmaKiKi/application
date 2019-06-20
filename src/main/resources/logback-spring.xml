@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- configuration file for LogBack (slf4J implementation) See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-through-the-java-loggers/ -->
+<configuration scan="true" scanPeriod="30 seconds">
+  <include resource="org/springframework/boot/logging/logback/base.xml" />
+  <!-- <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator"> <resetJUL>true</resetJUL> </contextListener> -->
+
+  <!-- To enable JMX Management -->
+  <!-- <jmxConfigurator/> -->
+
+  <property name="LOG_HOME" value="/opt/apache-tomcat/logs"/>
+  <property name="PROJECT_NAME" value="hathor"/>
+
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <charset>UTF-8</charset>
+      <pattern>
+        STDOUT1 "time":"%d{yyyy/MM/dd HH:mm:ss.SSS}","level":"%-5level","service":"ifa-tablet","user_id":"%X{user_id}" - %msg %n
+      </pattern>
+    </encoder>
+  </appender>
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>${LOG_HOME}/${PROJECT_NAME}.log</File>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_HOME}/${PROJECT_NAME}.%d.%i.log</fileNamePattern>
+      <maxHistory>15</maxHistory>
+      <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <maxFileSize>10MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+    </rollingPolicy>
+    <encoder>
+      <pattern>
+        STDOUT1 "time":"%d{yyyy/MM/dd HH:mm:ss.SSS}","level":"%-5level","service":"ifa-tablet","user_id":"%X{user_id}" - %msg %n
+      </pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <logger name="com.sbibits" level="info" additivity="false">
+    <appender-ref ref="console" />
+    <appender-ref ref="FILE"/>
+  </logger>
+
+  <logger name="org.springframework" level="info" additivity="false">
+    <appender-ref ref="console" />
+  </logger>
+</configuration>
