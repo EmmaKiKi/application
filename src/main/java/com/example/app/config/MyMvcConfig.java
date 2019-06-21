@@ -16,6 +16,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class MyMvcConfig extends WebMvcConfigurerAdapter{
 
+	/**
+	 * 添加视图控制器，可添加多个，和既存的控制器共同作用
+	 */
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		//相当于在Controller中添加一个/simple的处理器，并且返回"success"

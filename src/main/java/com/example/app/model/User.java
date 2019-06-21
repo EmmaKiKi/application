@@ -9,6 +9,8 @@ import lombok.Data;
 @Data
 public class User {
 
+	private Integer id;
+	
 	@NotNull(message="邮箱不能为空")
 	@Email(message="邮箱格式错误")
 	private String email;

@@ -10,6 +10,12 @@ import com.example.app.model.User;
 @Controller
 public class LoginController {
 	
+	/**
+	 * 登录功能：
+	 * 1.拦截器登录检查，用于权限验证
+	 * @param user
+	 * @return
+	 */
 	
 
 	@RequestMapping(value="/login",method=RequestMethod.POST)
